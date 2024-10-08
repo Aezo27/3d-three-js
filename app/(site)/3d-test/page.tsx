@@ -14,8 +14,6 @@ export default function _3dExample() {
   const [selectedModel1, setSelectedModel1] = useState<string | null>(null);
   const [selectedModel2, setSelectedModel2] = useState<string | null>(null);
 
-  const camera = useRef(new PerspectiveCamera(75, 1, 0.1, 1000));
-  const controls = useRef<DreiOrbitControls>(null);
 
   const handleChange1 = (selectedOption: any) => {
     setSelectedModel1(selectedOption ? selectedOption.value : null);
@@ -32,8 +30,8 @@ export default function _3dExample() {
         <Select options={Models} onChange={handleChange2} placeholder="Select Model 2" />
       </div>
       <div className="flex h-svh justify-around">
-        {selectedModel1 && <ModelViewer url={selectedModel1} camera={camera.current} controls={controls} />}
-        {selectedModel2 && <ModelViewer url={selectedModel2} camera={camera.current} controls={controls} />}
+        {selectedModel1 && <ModelViewer url={selectedModel1} />}
+        {selectedModel2 && <ModelViewer url={selectedModel2} />}
       </div>
     </div>
   );
